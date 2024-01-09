@@ -1,0 +1,86 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+class Main {
+  public static void main(String[] args) {
+    Scanner rank = new Scanner(System.in);
+      Scanner atk = new Scanner(System.in);
+      Scanner hp = new Scanner(System.in);
+      Scanner shiny = new Scanner(System.in);
+      Scanner event = new Scanner(System.in);
+      
+    System.out.println("Enter rank");
+    int rankstat = rank.nextInt();
+      System.out.println("Enter atk % bonus");
+    int atkstat = rank.nextInt();
+      System.out.println("Enter hp % bonus");
+    int hpstat = rank.nextInt();
+      System.out.println("Enter shiny (true for shiny, false for not");
+    boolean ifshiny = rank.nextBoolean();
+      System.out.println("Enter event. (comimg soon, eneter random integer)");
+    int whichevent = rank.nextInt();
+      
+      int sparevar = 0;
+      int totalstats = 0;
+      double multiplier = 1;
+      totalstats = hpstat + atkstat;
+      double rankval = 1000 / rankstat;
+      if (ifshiny){
+          multiplier = multiplier + 200;
+      }
+      if (atkstat >=0){
+          sparevar = sparevar + 1;
+      } else{
+          sparevar = sparevar - 1;
+      }
+      if (hpstat >= 0){
+          sparevar = sparevar + 1;
+      } else{
+          sparevar = sparevar - 1;
+      }
+      if (sparevar == 2){
+          multiplier = multiplier + 0.15;
+      }
+      if (totalstats >=10){
+          multiplier = multiplier + 0.1;
+      }
+      if (totalstats >=20){
+          multiplier = multiplier + 0.1;
+      }
+      if (totalstats >=30){
+          multiplier = multiplier + 0.3;
+      }
+      if (totalstats >=38){
+          multiplier = multiplier + 0.5;
+      }
+      if (totalstats >=39){
+          multiplier = multiplier + 3;
+      }
+      if (totalstats >=40){
+          multiplier = multiplier + ((50/rankstat) + 10) * ((rankval * 2) / 125);
+      }
+      if (rankval >=17 && totalstats >=10){
+          multiplier = ((multiplier / 100) + rankstat) * 2;
+      }
+      if (sparevar == 2 && totalstats <10){
+          multiplier = multiplier + 0.05;
+      }
+      if (sparevar == -2){
+          multiplier = multiplier - 0.05;
+      }
+      if (totalstats <=-10){
+          multiplier = multiplier - 0.05;
+      }
+      if (totalstats <=-20){
+          multiplier = multiplier - 0.1;
+      }
+      if (totalstats <=-30){
+          multiplier = multiplier - 0.2;
+      }
+      if (totalstats <=-40){
+          multiplier = multiplier + 5.5;
+      }
+      System.out.println(rankval * multiplier);
+      System.out.println("this ball is worth about " + (Math.floor((rankval * multiplier) / 1000) + "T1's."));
+  }
+}
