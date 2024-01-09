@@ -1,7 +1,11 @@
-When you're asked to submit the rank, you should submit the rarity of the ball as shown on the ballsdex wiki: https://ballsdex.miraheze.org/wiki/Rarity_List
-the "atk % bonus" and "helath % bonus" are both self explanitory. Just submit the percentage bonus of each stat when asked.
-If your ball is shiny, submit "true" when asked. Otherwise you should submit "false".
-The seasonal functionality is coming soon.
+# Ballsdex Value Calculator
+This is a calculator made for calculating the value of Countryballs.
+The calculator is still in beta. Many things will change in the future.
+If you don't own a Java compiler, you can run the code here: https://www.programiz.com/java-programming/online-compiler/
 
-This is still in beta, many things will change in the future.
-If you dont own a java compiler you can run the code here: https://www.programiz.com/java-programming/online-compiler/
+## Calculator Guide
+When you have to input the 'rank', you should submit the rarity of the ball as shown on the Ballsdex wiki: https://ballsdex.miraheze.org/wiki/Rarity_List
+
+the "Attack modifier" and "Health modifier" are self-explanatory. Just submit the percentage bonus of each stat when asked. (Example: +20% or 20)
+If your ball is shiny, submit "true" when asked. Otherwise, you should submit "false."
+The event functionality is coming soon.
