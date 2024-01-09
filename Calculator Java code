@@ -15,9 +15,9 @@ class Main {
     int atkstat = rank.nextInt();
       System.out.println("Enter hp % bonus");
     int hpstat = rank.nextInt();
-      System.out.println("Enter shiny (true for shiny, false for not");
+      System.out.println("Enter shiny (true for shiny, false for not)");
     boolean ifshiny = rank.nextBoolean();
-      System.out.println("Enter event. (comimg soon, eneter random integer)");
+      System.out.println("Enter event. (cominmg soon, eneter random integer)");
     int whichevent = rank.nextInt();
       
       int sparevar = 0;
@@ -81,6 +81,6 @@ class Main {
           multiplier = multiplier + 5.5;
       }
       System.out.println(rankval * multiplier);
-      System.out.println("this ball is worth about " + (Math.floor((rankval * multiplier) / 1000) + "T1's."));
+      System.out.println(" this ball is worth about " + (Math.floor((rankval * multiplier) / 100) / 10 + " T1's."));
   }
 }
