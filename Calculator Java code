@@ -114,15 +114,16 @@ class Main {
         multiplier = multiplier + 5.5;
     }
 
-float lol = (((1000 / rankstat) - 8) + (2600 / rankstat)) / 2;
+double lol = ((((1000 / rankstat) - 8) + (2600 / rankstat)) / 2) * multiplier;
 float result = Math.round((lol) / 100);
+long twelve = Math.round(((1000/rankstat) * multiplier)/100);
 result = result / 10;
 result = Math.round(result);
 
-    if (rankstat != 8) {System.out.println(lol * multiplier + " (a score of 1000 is equal to 1 T1 ball)");
+    if (rankstat >= 8) {System.out.println(lol * multiplier + " (a score of 1000 is equal to 1 T1 ball)");
     System.out.println("this ball is worth about " + result + " T1's.");
-    } else {System.out.println(125 * multiplier + " (a score of 1000 is equal to 1 T1 ball)");
-        System.out.println("this ball is worth about " + result + " T1's.");
+    } else {System.out.println(rankval * multiplier + " (a score of 1000 is equal to 1 T1 ball)");
+        System.out.println("this ball is worth about " + (twelve) / 10 + " T1's.");
     }
     System.out.println("Keep in mind that this calculator is still under development. Calculations are likely to be off just a little bit.");
   }
