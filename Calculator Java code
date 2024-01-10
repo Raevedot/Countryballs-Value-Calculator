@@ -72,26 +72,14 @@ class Main {
 
     clear();
 
-    int sparevar = 0;
+// IMPORTANT MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
+
     int totalstats = 0;
     double multiplier = ifshiny ? 200 : 1;
 
     totalstats = healthstat + attackstat;
     double rankval = 1000 / rankstat;
 
-    if (attackstat >=0){
-        sparevar = sparevar + 1;
-    } else{
-        sparevar = sparevar - 1;
-    }
-    if (healthstat >= 0){
-        sparevar = sparevar + 1;
-    } else{
-        sparevar = sparevar - 1;
-    }
-    if (sparevar == 2){
-        multiplier = multiplier + 0.15;
-    }
     if (totalstats >=10){
         multiplier = multiplier + 0.1;
     }
@@ -113,12 +101,6 @@ class Main {
     if (rankval >=17 && totalstats >=10){
         multiplier = ((multiplier / 100) + rankstat) * 2;
     }
-    if (sparevar == 2 && totalstats <10){
-        multiplier = multiplier + 0.05;
-    }
-    if (sparevar == -2){
-        multiplier = multiplier - 0.05;
-    }
     if (totalstats <=-10){
         multiplier = multiplier - 0.05;
     }
@@ -132,9 +114,16 @@ class Main {
         multiplier = multiplier + 5.5;
     }
 
-    Long result = Math.round((rankval * multiplier) / 100) / 10;
+float lol = (((1000 / rankstat) - 8) + (2600 / rankstat)) / 2;
+float result = Math.round((lol) / 100);
+result = result / 10;
+result = Math.round(result);
 
-    System.out.println(rankval * multiplier);
+    if (rankstat != 8) {System.out.println(lol * multiplier + " (a score of 1000 is equal to 1 T1 ball)");
     System.out.println("this ball is worth about " + result + " T1's.");
+    } else {System.out.println(125 * multiplier + " (a score of 1000 is equal to 1 T1 ball)");
+        System.out.println("this ball is worth about " + result + " T1's.");
+    }
+    System.out.println("Keep in mind that this calculator is still under development. Calculations are likely to be off just a little bit.");
   }
 }
