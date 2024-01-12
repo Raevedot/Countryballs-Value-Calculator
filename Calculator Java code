@@ -30,11 +30,21 @@ class Main {
   
   public static void main(String[] args) {
     Scanner input = new Scanner(System.in);
+    
+    System.out.println("Enter rarity to calculate (If you want to see how many top ones you can get, put 1)");
+    int raritycalc = input.nextInt();
+
+    clear();
 
     System.out.println("Enter rarity");
     int rankstat = input.nextInt();
-
+    
     clear();
+    
+    if (rankstat == 0) {
+        System.out.println("You must enter a valid number.");
+        System.exit(0);
+    }
 
     System.out.println("Enter attack modifier (EX: +20%)");
     String attack_input = input.next();
@@ -98,9 +108,6 @@ class Main {
     if (totalstats >=40){
         multiplier = multiplier + ((50/rankstat) + 10) * ((rankval * 2) / 125);
     }
-    if (rankval >=17 && totalstats >=10){
-        multiplier = ((multiplier / 100) + rankstat) * 2;
-    }
     if (totalstats <=-10){
         multiplier = multiplier - 0.05;
     }
@@ -114,17 +121,20 @@ class Main {
         multiplier = multiplier + 5.5;
     }
 
-double lol = ((((1000 / rankstat) - 8) + (2600 / rankstat)) / 2) * multiplier;
-float result = Math.round((lol) / 100);
-long twelve = Math.round(((1000/rankstat) * multiplier)/100);
-result = result / 10;
-result = Math.round(result);
+double finalval = ((((1000 / rankstat) - 8) + (2600 / rankstat)) / 2) * multiplier;
+double tx = Math.round((((1000 / raritycalc) - 8) + (2600 / raritycalc) / 2) * 10) / 10;
+double finalvalabove8 = ((1000 / rankstat) * multiplier);
+double txabove8 = Math.round((1000 / raritycalc) * 10) / 10;
+    double result = Math.round((finalval / tx) * 10) / 10;
+    double resultabove8 = Math.round((finalvalabove8 / txabove8) *10 ) / 10;
 
-    if (rankstat >= 8) {System.out.println(lol * multiplier + " (a score of 1000 is equal to 1 T1 ball)");
-    System.out.println("this ball is worth about " + result + " T1's.");
-    } else {System.out.println(rankval * multiplier + " (a score of 1000 is equal to 1 T1 ball)");
-        System.out.println("this ball is worth about " + (twelve) / 10 + " T1's.");
+    if ((rankstat != 8) && (rankstat != 1)){System.out.println(finalval);
+    } else {System.out.println(finalvalabove8);
     }
+if ((raritycalc != 8) && (raritycalc != 1)){System.out.println("(a score of " + tx + " is equal to 1 T" + raritycalc + " ball)");
+System.out.println("this ball is worth about " + result + " T" + raritycalc + "'s.");
+} else System.out.println("(a score of " + txabove8 + " is equal to 1 T" + raritycalc + " ball)");
+System.out.println("this ball is worth about " + resultabove8 + " T" + raritycalc + "'s.");
     System.out.println("Keep in mind that this calculator is still under development. Calculations are likely to be off just a little bit.");
   }
 }
