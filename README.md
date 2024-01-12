@@ -14,4 +14,4 @@ If your ball is shiny, submit "true" when asked. Otherwise, you should submit "f
 
 The event functionality is coming soon.
 
-Credits to @L13cht3nst31n and @*_dotzz*_ on discord for making the bot
+Credits to @L13cht3nst31n and @*_dotzz*_ on discord for making the calculator
