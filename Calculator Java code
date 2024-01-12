@@ -121,17 +121,17 @@ class Main {
         multiplier = multiplier + 5.5;
     }
 
-double finalval = ((((1000 / rankstat) - 8) + (2600 / rankstat)) / 2) * multiplier;
+double finalval = Math.round((((((1000 / rankstat) - 8) + (2600 / rankstat)) / 2) * multiplier)) * 10;
 double tx = Math.round((((1000 / raritycalc) - 8) + (2600 / raritycalc) / 2) * 10) ;
-double finalvalabove8 = ((1000 / rankstat) * multiplier);
+double finalvalabove8 = Math.round(((1000 / rankstat) * multiplier)) *10;
 double txabove8 = Math.round((1000 / raritycalc) * 10) ;
     double result = Math.round((finalval / tx) * 10);
     double result2 = Math.round((finalval / txabove8) *10);
     double resultabove8 = Math.round((finalvalabove8 / txabove8) *10 );
     double resultabove82 = Math.round((finalvalabove8 / tx) * 10);
 
-    if ((rankstat != 8) && (rankstat != 1)){System.out.println(finalval);
-    } else {System.out.println(finalvalabove8);
+    if ((rankstat != 8) && (rankstat != 1)){System.out.println(finalval/10);
+    } else {System.out.println(finalvalabove8/10);
     }
 if (((raritycalc != 8) && (raritycalc != 1)) && (((rankstat !=8) && (rankstat != 1)))){System.out.println("(a score of " + tx/10 + " is equal to 1 T" + raritycalc + " ball)");
     System.out.println("this ball is worth about " + resultabove8/10 + " T" + raritycalc + "'s");
